@@ -50,7 +50,7 @@ jobs:
 
       - name: Set permissions for private key
         run: |
-          echo "${{ env.SSH_PRIVATE_KEY }}" > key.pem
+          echo "test" > key.pem
           chmod 600 key.pem
 
       - name: Pull Docker image
