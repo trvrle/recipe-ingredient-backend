@@ -2,7 +2,9 @@ package com.trevor.recipe.service;
 
 import com.trevor.recipe.model.user.User;
 import com.trevor.recipe.model.user.UserRepository;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Optional;
 
@@ -21,6 +23,8 @@ public class UserService {
 
     public User getUser(Integer userId) {
         Optional<User> user = userRepository.findById(userId);
+        if (user.isEmpty())
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "User with id: " + userId + " does not exist");
         return user.get();
     }
 
