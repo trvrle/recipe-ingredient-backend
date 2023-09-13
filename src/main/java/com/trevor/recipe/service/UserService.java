@@ -18,13 +18,16 @@ public class UserService {
     }
 
     public User registerUser(User user) {
+        if (userRepository.findByUsername(user.getUsername()).isPresent())
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "User with username: " + user.getUsername() + " already exists");
+
         return userRepository.save(user);
     }
 
-    public User getUser(Integer userId) {
-        Optional<User> user = userRepository.findById(userId);
+    public User getUser(String username) {
+        Optional<User> user = userRepository.findByUsername(username);
         if (user.isEmpty())
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "User with id: " + userId + " does not exist");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "User with username: " + username + " does not exist");
         return user.get();
     }
 

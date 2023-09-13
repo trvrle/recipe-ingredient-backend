@@ -21,8 +21,8 @@ public class UserController {
         return userService.registerUser(user);
     }
 
-    @GetMapping(path = "{userId}")
-    public User getUser(@PathVariable Integer userId) {
-        return userService.getUser(userId);
+    @GetMapping(path = "{username}")
+    public User getUser(@PathVariable String username) {
+        return userService.getUser(username);
     }
 }

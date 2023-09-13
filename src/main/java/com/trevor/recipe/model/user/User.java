@@ -13,22 +13,19 @@ import java.io.Serializable;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@IdClass(UserKey.class)
 public class User implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @GeneratedValue(strategy=GenerationType.SEQUENCE)
     private Integer id;
 
-    @Column(name = "firstName")
-    private String firstName;
-
-    @Column(name = "lastName")
-    private String lastName;
-
-    @Column(name = "username")
+    @Id
     private String username;
 
-    @Column(name = "password")
     private String password;
+
+    private String firstName;
+
+    private String lastName;
 }
