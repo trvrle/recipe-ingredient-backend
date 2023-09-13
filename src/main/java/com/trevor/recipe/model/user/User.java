@@ -1,8 +1,6 @@
 package com.trevor.recipe.model.user;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,21 +13,19 @@ import java.io.Serializable;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@IdClass(UserKey.class)
 public class User implements Serializable {
 
     @Id
-    @Column(name = "id")
-    private int id;
+    @GeneratedValue(strategy=GenerationType.SEQUENCE)
+    private Integer id;
 
-    @Column(name = "firstName")
-    private String firstName;
-
-    @Column(name = "lastName")
-    private String lastName;
-
-    @Column(name = "username")
+    @Id
     private String username;
 
-    @Column(name = "password")
     private String password;
+
+    private String firstName;
+
+    private String lastName;
 }
