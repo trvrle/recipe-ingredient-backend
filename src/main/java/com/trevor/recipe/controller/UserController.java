@@ -1,19 +1,28 @@
 package com.trevor.recipe.controller;
 
 import com.trevor.recipe.model.user.User;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.trevor.recipe.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value = "user")
+@RequestMapping(path = "api/v1/user")
 public class UserController {
-    
-    @GetMapping
-    public User getUser() {
-        User user = new User(1, "Trevor", "Le", "trevor.le", "password");
 
-        return user;
+    private final UserService userService;
+
+    @Autowired
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
+
+    @PostMapping
+    public User registerUser(@RequestBody User user) {
+        return userService.registerUser(user);
+    }
+
+    @GetMapping(path = "{userId}")
+    public User getUser(@PathVariable Integer userId) {
+        return userService.getUser(userId);
     }
 }
