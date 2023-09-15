@@ -1,6 +1,5 @@
 package com.trevor.recipe.service;
 
-import com.trevor.recipe.controller.request.LoginCredentials;
 import com.trevor.recipe.model.user.User;
 import com.trevor.recipe.model.user.UserRepository;
 import org.springframework.http.HttpStatus;

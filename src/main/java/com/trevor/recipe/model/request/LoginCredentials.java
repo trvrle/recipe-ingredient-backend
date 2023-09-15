@@ -1,4 +1,4 @@
-package com.trevor.recipe.controller.request;
+package com.trevor.recipe.model.request;
 
 import lombok.Getter;
 import lombok.Setter;

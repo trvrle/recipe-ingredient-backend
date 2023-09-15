@@ -1,6 +1,6 @@
 package com.trevor.recipe.controller;
 
-import com.trevor.recipe.controller.request.LoginCredentials;
+import com.trevor.recipe.model.request.LoginCredentials;
 import com.trevor.recipe.model.user.User;
 import com.trevor.recipe.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
