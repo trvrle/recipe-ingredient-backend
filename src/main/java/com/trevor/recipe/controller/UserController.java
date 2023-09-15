@@ -1,5 +1,6 @@
 package com.trevor.recipe.controller;
 
+import com.trevor.recipe.controller.request.LoginCredentials;
 import com.trevor.recipe.model.user.User;
 import com.trevor.recipe.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,13 +17,14 @@ public class UserController {
         this.userService = userService;
     }
 
-    @PostMapping
+    @PostMapping(path = "register")
     public User registerUser(@RequestBody User user) {
         return userService.registerUser(user);
     }
 
-    @GetMapping(path = "{username}")
-    public User getUser(@PathVariable String username) {
-        return userService.getUser(username);
+    @GetMapping(path = "login")
+    public User login(@RequestBody LoginCredentials loginCredentials) {
+        // TODO: Implement JWT authentication
+        return userService.login(loginCredentials.getUsername(), loginCredentials.getPassword());
     }
 }
