@@ -10,4 +10,6 @@ import lombok.Setter;
 public class Recipe {
     private String title;
     private String image;
+    private Boolean vegetarian;
+    private Boolean veryPopular;
 }
