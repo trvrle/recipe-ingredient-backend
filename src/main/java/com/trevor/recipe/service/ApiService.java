@@ -34,9 +34,10 @@ public class ApiService {
                 .queryParam("ingredients", ingredients)
                 .toUriString();
         RestTemplate restTemplate = new RestTemplate();
-        RecipeResponse result = restTemplate.getForObject(uri, RecipeResponse.class);
+        Recipe[] result = restTemplate.getForObject(uri, Recipe[].class);
+
         if (result == null)
             return List.of();
-        return result.getRecipes();
+        return List.of(result);
     }
 }

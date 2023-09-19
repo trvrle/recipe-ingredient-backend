@@ -26,6 +26,7 @@ public class RecipeController {
         return apiService.getRandomRecipes();
     }
 
+    @GetMapping
     public List<Recipe> getRecipesByIngredients(@RequestParam String ingredients) {
         return apiService.getRecipesByIngredients(ingredients);
     }

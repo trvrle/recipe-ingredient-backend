@@ -66,6 +66,51 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Get Random Recipes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/v1/recipe/random",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"recipe",
+						"random"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Recipes By Ingredients",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/v1/recipe?ingredients=butter,bread",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"recipe"
+					],
+					"query": [
+						{
+							"key": "ingredients",
+							"value": "butter,bread"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
