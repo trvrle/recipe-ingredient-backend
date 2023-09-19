@@ -25,4 +25,18 @@ public class ApiService {
             return List.of();
         return result.getRecipes();
     }
+
+    public List<Recipe> getRecipesByIngredients(String ingredients) {
+        String uri = UriComponentsBuilder
+                .fromHttpUrl(ApiConstants.BASE_URL)
+                .path("/recipes/findByIngredients")
+                .queryParam("apiKey", ApiConstants.API_KEY)
+                .queryParam("ingredients", ingredients)
+                .toUriString();
+        RestTemplate restTemplate = new RestTemplate();
+        RecipeResponse result = restTemplate.getForObject(uri, RecipeResponse.class);
+        if (result == null)
+            return List.of();
+        return result.getRecipes();
+    }
 }
