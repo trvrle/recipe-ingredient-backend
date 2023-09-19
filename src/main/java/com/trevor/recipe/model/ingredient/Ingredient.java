@@ -1,4 +1,4 @@
-package com.trevor.recipe.model.recipe;
+package com.trevor.recipe.model.ingredient;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
@@ -7,9 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Recipe {
-    private String title;
+public class Ingredient {
+    private String name;
     private String image;
-    private Boolean vegetarian;
-    private Boolean veryPopular;
 }
