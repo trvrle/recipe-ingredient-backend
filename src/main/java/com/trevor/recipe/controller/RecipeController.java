@@ -1,5 +1,6 @@
 package com.trevor.recipe.controller;
 
+import com.trevor.recipe.model.ingredient.Ingredient;
 import com.trevor.recipe.model.recipe.Recipe;
 import com.trevor.recipe.service.ApiService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,5 +30,10 @@ public class RecipeController {
     @GetMapping
     public List<Recipe> getRecipesByIngredients(@RequestParam String ingredients) {
         return apiService.getRecipesByIngredients(ingredients);
+    }
+
+    @GetMapping(path = "ingredient")
+    public List<Ingredient> getAutocompleteIngredients(@RequestParam String query) {
+        return apiService.getAutocompleteIngredients(query);
     }
 }

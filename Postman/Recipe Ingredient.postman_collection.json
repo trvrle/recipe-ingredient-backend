@@ -111,6 +111,32 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Get Autocomplete Ingredients",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/v1/recipe/ingredient?query=app",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"recipe",
+						"ingredient"
+					],
+					"query": [
+						{
+							"key": "query",
+							"value": "app"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
