@@ -24,10 +24,10 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    public User getUser(String username) {
-        Optional<User> user = userRepository.findByUsername(username);
+    public User login(String username, String password) {
+        Optional<User> user = userRepository.findByUsernameAndPassword(username, password);
         if (user.isEmpty())
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "User with username: " + username + " does not exist");
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Username or password is incorrect");
         return user.get();
     }
 
