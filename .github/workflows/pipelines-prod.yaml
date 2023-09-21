@@ -70,4 +70,4 @@ jobs:
 
       - name: Run new container
         run: |
-          ssh -o StrictHostKeyChecking=no -i key.pem ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} 'sudo docker run -d --name recipe_container -p 80:8080 ${{ secrets.DOCKER_USERNAME }}/recipe:latest'
+          ssh -o StrictHostKeyChecking=no -i key.pem ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} 'sudo docker run -d --name recipe_container -p 443:8080 ${{ secrets.DOCKER_USERNAME }}/recipe:latest'
